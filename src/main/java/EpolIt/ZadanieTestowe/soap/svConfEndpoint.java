@@ -36,9 +36,9 @@ public class svConfEndpoint {
 
         return svConf;
     }
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getSvConf")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getSvConfRequest")
     @ResponsePayload
-    public GetSvConfResponse getSvConf(@RequestPayload GetSvConf request) {
+    public GetSvConfResponse getSvConfRequest(@RequestPayload GetSvConfRequest request) {
         GetSvConfResponse response = new GetSvConfResponse();
         SvConf temp = svConfService.findByAttrName(request.getAttrName());
 
@@ -51,27 +51,27 @@ public class svConfEndpoint {
         return response;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "postSvConf")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "postSvConfRequest")
     @ResponsePayload
-    public PostSvConfResponse postSvConf(@RequestPayload PostSvConf request) {
+    public PostSvConfResponse postSvConfRequest(@RequestPayload PostSvConfRequest request) {
         PostSvConfResponse response = new PostSvConfResponse();
         SvConf svConf = new SvConf(request.getAttrName(), request.getAttrValue(), request.getAttrDesc());
         response.setStatus(svConfService.save(svConf));
         return response;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "putSvConf")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "putSvConfRequest")
     @ResponsePayload
-    public PutSvConfResponse putSvConf(@RequestPayload PutSvConf request) {
+    public PutSvConfResponse putSvConfRequest(@RequestPayload PutSvConfRequest request) {
         PutSvConfResponse response = new PutSvConfResponse();
         response.setStatus(svConfService.update(mapToSvConf(request.getSvConfSoap())));
 
         return response;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteSvConf")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteSvConfRequest")
     @ResponsePayload
-    public DeleteSvConfResponse deleteSvConf(@RequestPayload DeleteSvConf request) {
+    public DeleteSvConfResponse deleteSvConfRequest(@RequestPayload DeleteSvConfRequest request) {
         DeleteSvConfResponse response = new DeleteSvConfResponse();
         response.setStatus(svConfService.delete(request.getAttrName()));
 

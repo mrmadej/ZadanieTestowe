@@ -3,7 +3,7 @@
            xmlns:tns="http://www.soap.com/gen"
            targetNamespace="http://www.soap.com/gen" elementFormDefault="qualified">
 
-    <xs:element name="getSvConf">
+    <xs:element name="getSvConfRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="attrName" type="xs:string"/>
@@ -20,7 +20,7 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="postSvConf">
+    <xs:element name="postSvConfRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="attrName" type="xs:string"/>
@@ -38,7 +38,7 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="putSvConf">
+    <xs:element name="putSvConfRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="svConfSoap" type="tns:SvConfSoap"/>
@@ -54,7 +54,7 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="deleteSvConf">
+    <xs:element name="deleteSvConfRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="attrName" type="xs:string"/>
