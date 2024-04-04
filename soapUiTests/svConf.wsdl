@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.soap.com/gen" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.soap.com/gen" targetNamespace="http://www.soap.com/gen">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.soap.com/gen">
+
+    <xs:element name="getSvConfRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="attrName" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getSvConfResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="svConf" type="tns:SvConfSoap"/>
+                <xs:element name="status" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="postSvConfRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="attrName" type="xs:string"/>
+                <xs:element name="attrValue" type="xs:string"/>
+                <xs:element name="attrDesc" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="postSvConfResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="putSvConfRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="svConfSoap" type="tns:SvConfSoap"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="putSvConfResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteSvConfRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="attrName" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteSvConfResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="SvConfSoap">
+        <xs:sequence>
+            <xs:element name="attrName" type="xs:string"/>
+            <xs:element name="attrValue" type="xs:string"/>
+            <xs:element name="attrDesc" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="deleteSvConfResponse">
+    <wsdl:part element="tns:deleteSvConfResponse" name="deleteSvConfResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSvConfRequest">
+    <wsdl:part element="tns:getSvConfRequest" name="getSvConfRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSvConfResponse">
+    <wsdl:part element="tns:getSvConfResponse" name="getSvConfResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="putSvConfRequest">
+    <wsdl:part element="tns:putSvConfRequest" name="putSvConfRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="putSvConfResponse">
+    <wsdl:part element="tns:putSvConfResponse" name="putSvConfResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteSvConfRequest">
+    <wsdl:part element="tns:deleteSvConfRequest" name="deleteSvConfRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postSvConfRequest">
+    <wsdl:part element="tns:postSvConfRequest" name="postSvConfRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postSvConfResponse">
+    <wsdl:part element="tns:postSvConfResponse" name="postSvConfResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="svConfPort">
+    <wsdl:operation name="deleteSvConf">
+      <wsdl:input message="tns:deleteSvConfRequest" name="deleteSvConfRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteSvConfResponse" name="deleteSvConfResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSvConf">
+      <wsdl:input message="tns:getSvConfRequest" name="getSvConfRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getSvConfResponse" name="getSvConfResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="putSvConf">
+      <wsdl:input message="tns:putSvConfRequest" name="putSvConfRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:putSvConfResponse" name="putSvConfResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postSvConf">
+      <wsdl:input message="tns:postSvConfRequest" name="postSvConfRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:postSvConfResponse" name="postSvConfResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="svConfPortSoap11" type="tns:svConfPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="deleteSvConf">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="deleteSvConfRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteSvConfResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSvConf">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getSvConfRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSvConfResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="putSvConf">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="putSvConfRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="putSvConfResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postSvConf">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="postSvConfRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="postSvConfResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="svConfPortService">
+    <wsdl:port binding="tns:svConfPortSoap11" name="svConfPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

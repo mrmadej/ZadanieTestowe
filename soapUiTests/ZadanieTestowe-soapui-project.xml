@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="3ba31b30-836c-492b-917a-072797698a38" activeEnvironment="Default" name="ZadanieTestowe" resourceRoot="" defaultScriptLanguage="Groovy" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="76e74768-b0c0-48b6-bf64-a7bff35ca02b" wsaVersion="NONE" name="svConfPortSoap11" type="wsdl" bindingName="{http://www.soap.com/gen}svConfPortSoap11" soapVersion="1_1" anonymous="optional" definition="file:/./svConf.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\.\svConf.wsdl"><con:part><con:url>file:\.\svConf.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.soap.com/gen" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.soap.com/gen" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.soap.com/gen">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.soap.com/gen" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getSvConfRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="attrName" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getSvConfResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="svConf" type="tns:SvConfSoap"/>
+            <xs:element name="status" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="postSvConfRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="attrName" type="xs:string"/>
+            <xs:element name="attrValue" type="xs:string"/>
+            <xs:element name="attrDesc" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="postSvConfResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="putSvConfRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="svConfSoap" type="tns:SvConfSoap"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="putSvConfResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteSvConfRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="attrName" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteSvConfResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="SvConfSoap">
+        <xs:sequence>
+          <xs:element name="attrName" type="xs:string"/>
+          <xs:element name="attrValue" type="xs:string"/>
+          <xs:element name="attrDesc" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="deleteSvConfResponse">
+    <wsdl:part element="tns:deleteSvConfResponse" name="deleteSvConfResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSvConfRequest">
+    <wsdl:part element="tns:getSvConfRequest" name="getSvConfRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSvConfResponse">
+    <wsdl:part element="tns:getSvConfResponse" name="getSvConfResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="putSvConfRequest">
+    <wsdl:part element="tns:putSvConfRequest" name="putSvConfRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="putSvConfResponse">
+    <wsdl:part element="tns:putSvConfResponse" name="putSvConfResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteSvConfRequest">
+    <wsdl:part element="tns:deleteSvConfRequest" name="deleteSvConfRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postSvConfRequest">
+    <wsdl:part element="tns:postSvConfRequest" name="postSvConfRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postSvConfResponse">
+    <wsdl:part element="tns:postSvConfResponse" name="postSvConfResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="svConfPort">
+    <wsdl:operation name="deleteSvConf">
+      <wsdl:input message="tns:deleteSvConfRequest" name="deleteSvConfRequest"></wsdl:input>
+      <wsdl:output message="tns:deleteSvConfResponse" name="deleteSvConfResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSvConf">
+      <wsdl:input message="tns:getSvConfRequest" name="getSvConfRequest"></wsdl:input>
+      <wsdl:output message="tns:getSvConfResponse" name="getSvConfResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="putSvConf">
+      <wsdl:input message="tns:putSvConfRequest" name="putSvConfRequest"></wsdl:input>
+      <wsdl:output message="tns:putSvConfResponse" name="putSvConfResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postSvConf">
+      <wsdl:input message="tns:postSvConfRequest" name="postSvConfRequest"></wsdl:input>
+      <wsdl:output message="tns:postSvConfResponse" name="postSvConfResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="svConfPortSoap11" type="tns:svConfPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="deleteSvConf">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="deleteSvConfRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteSvConfResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSvConf">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getSvConfRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSvConfResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="putSvConf">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="putSvConfRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="putSvConfResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postSvConf">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="postSvConfRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="postSvConfResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="svConfPortService">
+    <wsdl:port binding="tns:svConfPortSoap11" name="svConfPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws</con:endpoint></con:endpoints><con:operation id="3384cd45-7672-4c28-996d-72e7d89453ef" isOneWay="false" action="" name="deleteSvConf" bindingOperationName="deleteSvConf" type="Request-Response" outputName="deleteSvConfResponse" inputName="deleteSvConfRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e3c0c5d3-eece-4f8d-9efe-2363742b1857" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gen:deleteSvConfRequest>\r
+         <gen:attrName>?</gen:attrName>\r
+      </gen:deleteSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.soap.com/gen/svConfPort/deleteSvConfRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="c3b44648-f7c5-4ba4-b686-012202f3cbd0" isOneWay="false" action="" name="getSvConf" bindingOperationName="getSvConf" type="Request-Response" outputName="getSvConfResponse" inputName="getSvConfRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="359936ff-d9f6-4a6a-8bb3-bf8b768cdcfd" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gen:getSvConfRequest>\r
+         <gen:attrName>?</gen:attrName>\r
+      </gen:getSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.soap.com/gen/svConfPort/getSvConfRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="818f82a2-4668-43cf-8cb0-58395bd2833c" isOneWay="false" action="" name="postSvConf" bindingOperationName="postSvConf" type="Request-Response" outputName="postSvConfResponse" inputName="postSvConfRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="86842cef-ed96-49cc-91ff-d0a9d1ab0c97" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gen:postSvConfRequest>\r
+         <gen:attrName>?</gen:attrName>\r
+         <gen:attrValue>?</gen:attrValue>\r
+         <gen:attrDesc>?</gen:attrDesc>\r
+      </gen:postSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.soap.com/gen/svConfPort/postSvConfRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="b8246c37-a09f-450d-8cc3-9263cca13176" isOneWay="false" action="" name="putSvConf" bindingOperationName="putSvConf" type="Request-Response" outputName="putSvConfResponse" inputName="putSvConfRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1e5ba83e-1249-430c-b17c-786d3007c70d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gen:putSvConfRequest>\r
+         <gen:svConfSoap>\r
+            <gen:attrName>?</gen:attrName>\r
+            <gen:attrValue>?</gen:attrValue>\r
+            <gen:attrDesc>?</gen:attrDesc>\r
+         </gen:svConfSoap>\r
+      </gen:putSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.soap.com/gen/svConfPort/putSvConfRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="c19f8a2e-3ddb-4ea7-8943-4a1e9cfb8636" name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="25c47558-87b5-4ffb-bbdb-01d9042dd58e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="BasicOperations" searchProperties="true"><con:settings/><con:testStep type="request" name="createConf" id="8c421c6c-9c03-4239-a78c-7e4856f457c3"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>postSvConf</con:operation><con:request name="createConf" id="bbd92987-aef9-4715-a5f2-cf18fe63fd38"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+   <postSvConfRequest xmlns="http://www.soap.com/gen">
+         <attrName>Test</attrName>
+         <attrValue>Test1 value</attrValue>
+         <attrDesc>Lorem Ipsum</attrDesc>
+   </postSvConfRequest>6
+  </soap:Body>
+</soap:Envelope>
+]]></con:request><con:assertion type="SOAP Response" id="c079c965-36d0-461f-917a-60171cbf086c"/><con:assertion type="Schema Compliance" id="4bb360b8-eefb-4861-9a39-daecae56b806"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="0bc695af-ce3b-40b9-9ccf-d0d484b4cef3"/><con:assertion type="GroovyScriptAssertion" id="86b859ee-1243-40dd-ab38-be357e1a06e7" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:postSvConfResponse'
+    .'ns2:status'
+    .text() == '0', "Could not create, already exists, or wrong attributes."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetConf" id="ad294b1e-5547-4c13-a0f1-7357893dca37"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>getSvConf</con:operation><con:request name="GetConf" id="e37d79a3-014a-4790-93d8-69f63ee8910e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gen:getSvConfRequest>\r
+         <gen:attrName>Test</gen:attrName>\r
+      </gen:getSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4facd120-2344-4b47-9922-0c73ddaf1de2"/><con:assertion type="Schema Compliance" id="479303fe-337d-47be-bdbb-66a617cb836b"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="fc55f604-9deb-41df-844f-de9c962cb04f"/><con:assertion type="GroovyScriptAssertion" id="4c663bae-a096-4edd-a972-1e150b59fd1b" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+def status = xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:getSvConfResponse'
+    .'ns2:status'
+    .text()
+
+if (status == '0') {
+    assert xmlResponse.Body.'ns2:getSvConfResponse'.'ns2:svConf'.'ns2:attrName'.text() == 'Test' : "'attrName' not expected value."
+    assert xmlResponse.Body.'ns2:getSvConfResponse'.'ns2:svConf'.'ns2:attrValue'.text() == 'Test1 value' : "'attrValue' not expected value.."
+    assert xmlResponse.Body.'ns2:getSvConfResponse'.'ns2:svConf'.'ns2:attrDesc'.text() == 'Lorem Ipsum' : "'attrDesc' not expected value.."
+} else {
+    assert false : "Does not exist."
+}</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="updateConf" id="9587ceb0-f769-43b2-8050-ffc2db81e46f"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>putSvConf</con:operation><con:request name="updateConf" id="6e9867a5-ec53-4396-a2ed-a7e9f17c5155"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gen:putSvConfRequest>\r
+         <gen:svConfSoap>\r
+            <gen:attrName>Test</gen:attrName>\r
+            <gen:attrValue>new value</gen:attrValue>\r
+            <gen:attrDesc>new desc</gen:attrDesc>\r
+         </gen:svConfSoap>\r
+      </gen:putSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a2ed7e42-f9c0-4052-940f-84bdf63c2d03"/><con:assertion type="Schema Compliance" id="d4ebc66f-4ba0-467a-b051-d81ebd20c16d"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="c0f3c3d2-41fc-4ae1-9c4f-dab47d2140e1"/><con:assertion type="GroovyScriptAssertion" id="f63724a3-d5e2-4496-8c81-9a482ca49d29" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:putSvConfResponse'
+    .'ns2:status'
+    .text() == '0', "Does not exist or wrong attributes."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="deleteConf" id="8d944665-b39b-4f15-82c9-e741b706dce2"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>deleteSvConf</con:operation><con:request name="deleteConf" id="42b3ecfc-b0b8-4932-ad52-14f9a1e96710"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gen:deleteSvConfRequest>\r
+         <gen:attrName>Test</gen:attrName>\r
+      </gen:deleteSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="28b37b05-fa02-4d5f-9905-e85cadfe6d71"/><con:assertion type="Schema Compliance" id="5c194e10-b315-47da-91a7-5ef0cf5d6a88"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="523ae210-157b-4ce9-89df-b361fde5cd43"/><con:assertion type="GroovyScriptAssertion" id="1d62e359-30de-429c-88d9-90dfc91119f3" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+// Pobranie treści odpowiedzi SOAP
+def response = context.response
+
+// Konwersja odpowiedzi na obiekt XML
+def xmlResponse = new XmlSlurper().parseText(response)
+
+// Deklaracja przestrzeni nazw
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+// Sprawdzenie, czy pole "status" istnieje i ma wartość 0
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:deleteSvConfResponse'
+    .'ns2:status'
+    .text() == '0', "Conf does not exist."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="11e64eb2-bad0-4f4f-9d6c-52614674eb24" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateTheSame" searchProperties="true"><con:settings/><con:testStep type="request" name="createFirstTime" id="48225bd1-2bd8-46ec-9666-7d74295cfe95"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>postSvConf</con:operation><con:request name="createFirstTime" id="c473f16d-1f39-417f-9fff-bd82f5ba967a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gen:postSvConfRequest>\r
+         <gen:attrName>Test</gen:attrName>\r
+         <gen:attrValue>Test1 value</gen:attrValue>\r
+         <gen:attrDesc>Lorem Ipsum</gen:attrDesc>\r
+      </gen:postSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="1c21a2be-2b21-4847-ab74-11ecb364e466"/><con:assertion type="Schema Compliance" id="b0a4a876-4933-45e6-803b-04a146432ec5"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="35368f6d-9193-4ff4-9a6e-e670ec61e767"/><con:assertion type="GroovyScriptAssertion" id="c53df7fa-bf88-4c63-8d30-202c85b6317e" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:postSvConfResponse'
+    .'ns2:status'
+    .text() == '0', "Could not create, already exists, or wrong attributes."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="createSecondTimeTheSame" id="320e81d1-5367-4266-8ab4-2b86dc030f72"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>postSvConf</con:operation><con:request name="createSecondTimeTheSame" id="70e3444a-7e53-48f9-ab32-8047c4b831b7"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gen:postSvConfRequest>
+         <gen:attrName>Test</gen:attrName>
+         <gen:attrValue>Test1 value</gen:attrValue>
+         <gen:attrDesc>Lorem Ipsum</gen:attrDesc>
+      </gen:postSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="f070cee5-9d47-48ec-b982-ab9175e92545"/><con:assertion type="Schema Compliance" id="f254d752-d087-457a-b67c-5c98d1e89b18"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="4fc693ab-70f9-419b-a03c-a41e4c8dd165"/><con:assertion type="GroovyScriptAssertion" id="736bca8b-00b8-4790-807b-c2d4f4075105" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:postSvConfResponse'
+    .'ns2:status'
+    .text() == '400', "This conf already exist and should not be create again."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="delete" id="003aebcf-e990-41be-9efb-e48f1c5f64f5"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>deleteSvConf</con:operation><con:request name="delete" id="b02e6c1c-3589-4386-ba58-6922c8d3aa3e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gen:deleteSvConfRequest>
+         <gen:attrName>Test</gen:attrName>
+      </gen:deleteSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="2ae25023-5df0-4856-8cc8-0856dd1cd839"/><con:assertion type="Schema Compliance" id="f58ea579-0b60-430c-9d69-942cd67dc60e"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="ce28fd89-8e69-4dcf-aefd-38cc2352a622"/><con:assertion type="GroovyScriptAssertion" id="fa818c36-be88-4870-bc37-bc3a3d4e12d2" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+// Pobranie treści odpowiedzi SOAP
+def response = context.response
+
+// Konwersja odpowiedzi na obiekt XML
+def xmlResponse = new XmlSlurper().parseText(response)
+
+// Deklaracja przestrzeni nazw
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+// Sprawdzenie, czy pole "status" istnieje i ma wartość 0
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:deleteSvConfResponse'
+    .'ns2:status'
+    .text() == '0', "Conf does not exist."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="a739ccda-7344-421d-8e97-0eb5f5454927" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateEmpty" searchProperties="true"><con:settings/><con:testStep type="request" name="createEmpty" id="e5dd0aaa-2dc1-439b-8ffd-32c2e79ad72e"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>postSvConf</con:operation><con:request name="createEmpty" id="b8b98637-f0ca-46d0-b2ac-a95168926559"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gen:postSvConfRequest>
+         <gen:attrName></gen:attrName>
+         <gen:attrValue></gen:attrValue>
+         <gen:attrDesc></gen:attrDesc>
+      </gen:postSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="b74c8c89-066a-4e3a-98af-6d8775cc2952"/><con:assertion type="Schema Compliance" id="b0c9978e-e2f5-4fd5-b4f0-877c16e284c8"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="218bb957-1b98-4c01-b3fa-ba258fec864c"/><con:assertion type="GroovyScriptAssertion" id="dae7838b-db5a-47f8-9bef-bb3bcba53e88" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:postSvConfResponse'
+    .'ns2:status'
+    .text() == '400', "Empty conf, should not be created."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="642320d8-534c-41e7-85ab-dff3830fcf55" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="createWithToBigAttributes" searchProperties="true"><con:settings/><con:testStep type="request" name="createWithToBig" id="e80fc891-0550-4d57-b0f4-507046b1435d"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>postSvConf</con:operation><con:request name="createWithToBig" id="396adab3-efad-427e-86f3-c0e77ebd9ea4"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gen:postSvConfRequest>\r
+         <gen:attrName>Test</gen:attrName>\r
+         <gen:attrValue>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut cursus efficitur condimentum. </gen:attrValue>\r
+         <gen:attrDesc>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut cursus efficitur condimentum. </gen:attrDesc>\r
+      </gen:postSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="474ceae9-2043-42d6-9305-558b950cb533"/><con:assertion type="Schema Compliance" id="813dc167-df42-4b71-8330-19914019fbc3"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="44db4f83-fc2e-4a67-9757-a476888dd872"/><con:assertion type="GroovyScriptAssertion" id="181ce625-fe07-411d-a59e-c7c87c0f1576" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:postSvConfResponse'
+    .'ns2:status'
+    .text() == '400', "Too big values of attributes, should not be created."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="d1cc7101-4f14-4e98-bbe5-1b3fb568c438" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UpdateAndGet" searchProperties="true"><con:settings/><con:testStep type="request" name="create" id="9dc49b01-fb04-4702-985d-04435b0ca932"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>postSvConf</con:operation><con:request name="create" id="dea46285-b2d4-4630-a7d1-57f392641518"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gen:postSvConfRequest>
+         <gen:attrName>Test</gen:attrName>
+         <gen:attrValue>Test1 value</gen:attrValue>
+         <gen:attrDesc>Lorem Ipsum</gen:attrDesc>
+      </gen:postSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="528d821e-a034-4037-bc9b-429c33a6370e"/><con:assertion type="Schema Compliance" id="50130188-4af7-4eef-90a9-4d628180d15c"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="bb1e30d2-e1b3-43f9-8ad9-57e161f73a00"/><con:assertion type="GroovyScriptAssertion" id="52944874-0752-4376-9f82-29f6b876bf0f" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:postSvConfResponse'
+    .'ns2:status'
+    .text() == '0', "Could not create, already exists, or wrong attributes."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="update" id="78fab04e-6c6d-4fc9-a052-c46059cc6a38"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>putSvConf</con:operation><con:request name="update" id="9f32de35-ac6e-43aa-930d-d2640bc51fd3"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gen:putSvConfRequest>\r
+         <gen:svConfSoap>\r
+            <gen:attrName>Test</gen:attrName>\r
+            <gen:attrValue>new value</gen:attrValue>\r
+            <gen:attrDesc>new desc</gen:attrDesc>\r
+         </gen:svConfSoap>\r
+      </gen:putSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="66613637-6bed-4294-a036-96ee9544ff7b"/><con:assertion type="Schema Compliance" id="0f5d2c92-1ac8-409e-b222-1cc1caa3f400"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="a6aa0c1d-aa79-4dcd-84d0-e903193c456c"/><con:assertion type="GroovyScriptAssertion" id="c9acd42f-f109-498c-bf48-dce9f3cc666e" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:putSvConfResponse'
+    .'ns2:status'
+    .text() == '0', "Does not exist or wrong attributes."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getUpdated" id="adb19276-3692-4b8f-bb5b-8b5f2e2ecd04"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>getSvConf</con:operation><con:request name="getUpdated" id="65379302-3599-4100-a6ec-70c3634ccb42"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gen:getSvConfRequest>
+         <gen:attrName>Test</gen:attrName>
+      </gen:getSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="dbc9fe8a-65a4-4c51-877d-b69c6439193f"/><con:assertion type="Schema Compliance" id="4bdcadbb-b24e-4705-84bb-3a7612f5654f"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="66da69e1-999e-4668-9fcc-68d558eb34ab"/><con:assertion type="GroovyScriptAssertion" id="dcf6ad9e-e46b-48a3-b268-05610f65bd5f" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+def status = xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:getSvConfResponse'
+    .'ns2:status'
+    .text()
+
+if (status == '0') {
+    assert xmlResponse.Body.'ns2:getSvConfResponse'.'ns2:svConf'.'ns2:attrName'.text() == 'Test' : "'attrName' not expected value."
+    assert xmlResponse.Body.'ns2:getSvConfResponse'.'ns2:svConf'.'ns2:attrValue'.text() == 'new value' : "'attrValue' not expected value.."
+    assert xmlResponse.Body.'ns2:getSvConfResponse'.'ns2:svConf'.'ns2:attrDesc'.text() == 'new desc' : "'attrDesc' not expected value.."
+} else {
+    assert false : "Does not exist."
+}</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="deleteUpdated" id="62de749d-20b7-4139-8161-08a14f77cccb"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>deleteSvConf</con:operation><con:request name="deleteUpdated" id="21c92795-b034-4227-b859-1a0dff139e2c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gen:deleteSvConfRequest>\r
+         <gen:attrName>Test</gen:attrName>\r
+      </gen:deleteSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="3d588c0a-7f89-4ff7-81bf-2b996b6eff2a"/><con:assertion type="Schema Compliance" id="28ed2dfd-bc5d-47d2-b4cd-fabac6c31076"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="ddec08ba-ebc9-481e-8d6c-2042424e58a8"/><con:assertion type="GroovyScriptAssertion" id="2268962e-640b-48aa-bd4f-a95c7c20095c" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+// Pobranie treści odpowiedzi SOAP
+def response = context.response
+
+// Konwersja odpowiedzi na obiekt XML
+def xmlResponse = new XmlSlurper().parseText(response)
+
+// Deklaracja przestrzeni nazw
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+// Sprawdzenie, czy pole "status" istnieje i ma wartość 0
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:deleteSvConfResponse'
+    .'ns2:status'
+    .text() == '0', "Conf does not exist."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="5d8c3386-5f4e-477e-9d70-958ec8f9b6b1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UpdateThatDoesNotExist" searchProperties="true"><con:settings/><con:testStep type="request" name="create" id="c5664ff2-8d21-4468-8409-a73de056078e"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>postSvConf</con:operation><con:request name="create" id="704ded72-6a05-46dc-a3ad-ed384e2496f6"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gen:postSvConfRequest>
+         <gen:attrName>Test</gen:attrName>
+         <gen:attrValue>Test1 value</gen:attrValue>
+         <gen:attrDesc>Lorem Ipsum</gen:attrDesc>
+      </gen:postSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="2de56b0d-382d-40b0-90ce-d6d07fa1f851"/><con:assertion type="Schema Compliance" id="46942865-0ec0-42a3-9731-078f3b3510c1"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="f33a084e-1f4b-4a8b-b85d-5dc098c098a2"/><con:assertion type="GroovyScriptAssertion" id="b1e2f02f-f940-4f5a-8af8-231656072445" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:postSvConfResponse'
+    .'ns2:status'
+    .text() == '0', "Could not create, already exists, or wrong attributes."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="updateThatDoesNotExist" id="a48b77a3-1255-48b5-ac14-779546ddc9ab"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>putSvConf</con:operation><con:request name="updateThatDoesNotExist" id="7957314a-e691-4aaa-b1c7-191b1a13fe7e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gen:putSvConfRequest>
+         <gen:svConfSoap>
+            <gen:attrName>Test1</gen:attrName>
+            <gen:attrValue>new value</gen:attrValue>
+            <gen:attrDesc>new desc</gen:attrDesc>
+         </gen:svConfSoap>
+      </gen:putSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="65ebb442-b5fe-4bf9-aeda-9139f9def05a"/><con:assertion type="Schema Compliance" id="689f7dc9-1c25-49ee-9800-f18d4643f2fd"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="5016c8d4-472d-4ac6-b769-c179fb313f3d"/><con:assertion type="GroovyScriptAssertion" id="26d1e3de-32bf-4ca4-8dfd-32315395c726" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:putSvConfResponse'
+    .'ns2:status'
+    .text() == '404', "Should not update conf that does not exist."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="get" id="771f4388-1078-46d8-86fc-b058ce365300"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>getSvConf</con:operation><con:request name="get" id="83ed0268-fd9c-4a4a-92d1-e5039b93db2a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gen:getSvConfRequest>
+         <gen:attrName>Test</gen:attrName>
+      </gen:getSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="914f7e26-132f-4db3-b013-c8e61e1d2b3a"/><con:assertion type="Schema Compliance" id="8e246d8c-ca4a-4950-8c7f-adad02505ac3"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="07b081a4-a217-4342-94f8-7538602be135"/><con:assertion type="GroovyScriptAssertion" id="cd0e001b-c610-4c04-9485-7381de23d01c" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+def status = xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:getSvConfResponse'
+    .'ns2:status'
+    .text()
+
+if (status == '0') {
+    assert xmlResponse.Body.'ns2:getSvConfResponse'.'ns2:svConf'.'ns2:attrName'.text() == 'Test' : "'attrName' not expected value."
+    assert xmlResponse.Body.'ns2:getSvConfResponse'.'ns2:svConf'.'ns2:attrValue'.text() == 'Test1 value' : "'attrValue' not expected value.."
+    assert xmlResponse.Body.'ns2:getSvConfResponse'.'ns2:svConf'.'ns2:attrDesc'.text() == 'Lorem Ipsum' : "'attrDesc' not expected value.."
+} else {
+    assert false : "Does not exist."
+}</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="delete" id="a470858d-1c0a-4e29-ad8a-4f9f7d1fc8f4"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>deleteSvConf</con:operation><con:request name="delete" id="bad81680-b2a0-4fa2-b91f-1be574c74a4a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gen:deleteSvConfRequest>
+         <gen:attrName>Test</gen:attrName>
+      </gen:deleteSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="e0df3156-0695-4e4c-ae4e-261a4ac9672e"/><con:assertion type="Schema Compliance" id="8a0af44f-bc8a-4b43-8e1e-c2a5d913e95f"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="ded71a94-e0c6-4770-ba66-7e5a636e4576"/><con:assertion type="GroovyScriptAssertion" id="aa2e7456-bbe6-4beb-a232-b4a179fd714e" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:deleteSvConfResponse'
+    .'ns2:status'
+    .text() == '0', "Conf does not exist."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b4c691ff-8a3a-40e7-9aec-188e6892d74c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DeleteThatDoesNotExist" searchProperties="true"><con:settings/><con:testStep type="request" name="create" id="9305a4c8-e813-43a5-8b8c-e12a626f238e"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>postSvConf</con:operation><con:request name="create" id="87d1bdc2-6f08-4015-ba65-932545071e13"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gen:postSvConfRequest>
+         <gen:attrName>Test</gen:attrName>
+         <gen:attrValue>Test1 value</gen:attrValue>
+         <gen:attrDesc>Lorem Ipsum</gen:attrDesc>
+      </gen:postSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="68a864a0-22f5-4f0a-97d2-463600778e6a"/><con:assertion type="Schema Compliance" id="8384e17b-580b-4216-a3f1-65481f2f66b7"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="f767f9f2-44b8-48ad-8749-29c32f823e75"/><con:assertion type="GroovyScriptAssertion" id="d0edeaa3-d969-4895-bdc0-ced12ef99d72" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:postSvConfResponse'
+    .'ns2:status'
+    .text() == '0', "Could not create, already exists, or wrong attributes."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="deleteThatDoesNotExist" id="03026cda-788f-4fd7-bac3-a8976287b18a"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>deleteSvConf</con:operation><con:request name="deleteThatDoesNotExist" id="5727f671-554c-490e-9358-ca553d4a339f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gen:deleteSvConfRequest>
+         <gen:attrName>Test1</gen:attrName>
+      </gen:deleteSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="64d231fe-4bf6-4fa3-8ce2-a122c784b48a"/><con:assertion type="Schema Compliance" id="353b1435-6db7-4faa-ae7e-f9380373b508"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="67529698-d563-48af-87d2-cd8212e7c79b"/><con:assertion type="GroovyScriptAssertion" id="882b115c-c46a-42a3-bb81-c482daf280ad" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:deleteSvConfResponse'
+    .'ns2:status'
+    .text() == '404', "Should not be able to delete conf that does not exist."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="delete" id="c7f260aa-0cdf-417e-a193-e13943b20115"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>deleteSvConf</con:operation><con:request name="delete" id="a7511df3-b37c-4791-867f-a3ba935245fd"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gen:deleteSvConfRequest>
+         <gen:attrName>Test</gen:attrName>
+      </gen:deleteSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="3fd246f2-57d6-48b4-b56b-dc2fbf285ea4"/><con:assertion type="Schema Compliance" id="bca633f2-8dfd-4e73-978d-8f3260757a6c"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="0eb6ce7d-ae80-4435-9279-06edb3920bff"/><con:assertion type="GroovyScriptAssertion" id="78eeb001-e2df-4bb5-90ca-f1fb2c3113ae" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:deleteSvConfResponse'
+    .'ns2:status'
+    .text() == '0', "Conf does not exist."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="7aa3bb0c-dfff-4392-a9cc-ff145ce5a502" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateTwoAndGetWrong" searchProperties="true"><con:settings/><con:testStep type="request" name="create1" id="627101f7-9665-44c3-86b8-d659b90ff20d"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>postSvConf</con:operation><con:request name="create1" id="d9e56f4b-fc01-4e42-984a-110a34cbc41c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gen:postSvConfRequest>
+         <gen:attrName>Test</gen:attrName>
+         <gen:attrValue>Test1 value</gen:attrValue>
+         <gen:attrDesc>Lorem Ipsum</gen:attrDesc>
+      </gen:postSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="2f8706d8-8801-4690-8e0b-eb1eb95b5049"/><con:assertion type="Schema Compliance" id="3e4ddc13-ae4d-4617-9daf-ae8a55daf282"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="74663089-29f9-477d-a64f-24480e414f92"/><con:assertion type="GroovyScriptAssertion" id="30a46d8a-04d9-4ae3-b1df-1f6820fb3fd4" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:postSvConfResponse'
+    .'ns2:status'
+    .text() == '0', "Could not create, already exists, or wrong attributes."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="create2" id="740577bb-bd77-4062-abe7-d7d8512cc785"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>postSvConf</con:operation><con:request name="create2" id="abba1a79-dd2d-4cd8-b0fc-f7084cc4c57b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gen:postSvConfRequest>
+         <gen:attrName>Test2</gen:attrName>
+         <gen:attrValue>Test1 value</gen:attrValue>
+         <gen:attrDesc>Lorem Ipsum</gen:attrDesc>
+      </gen:postSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="cb4838e5-e88d-4d1d-bdf7-d98878c54a1b"/><con:assertion type="Schema Compliance" id="df8076e7-947e-4bb2-adfa-c9e74bf1e693"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="4a0fa14f-29ee-4b19-9b9f-a0120a86fe1c"/><con:assertion type="GroovyScriptAssertion" id="3a27ce17-7e6d-44d6-93cb-6a634a84a065" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:postSvConfResponse'
+    .'ns2:status'
+    .text() == '0', "Could not create, already exists, or wrong attributes."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getCorrect" id="8280790f-d49c-4cb3-b3fb-2043b914e99e"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>getSvConf</con:operation><con:request name="getCorrect" id="9ec7f0a7-e622-413a-9d41-f5c160d90875"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gen:getSvConfRequest>
+         <gen:attrName>Test</gen:attrName>
+      </gen:getSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="b09435aa-1949-453d-9451-97bd831d2908"/><con:assertion type="Schema Compliance" id="992e48f0-c280-411f-bb0c-e36b049d4cd2"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="27dc098b-1d85-4d3b-8c1c-3784dc508a87"/><con:assertion type="GroovyScriptAssertion" id="1fc4da20-4b80-455f-8cf2-c1538858ba15" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+def status = xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:getSvConfResponse'
+    .'ns2:status'
+    .text()
+
+if (status == '0') {
+    assert xmlResponse.Body.'ns2:getSvConfResponse'.'ns2:svConf'.'ns2:attrName'.text() == 'Test' : "'attrName' not expected value."
+    assert xmlResponse.Body.'ns2:getSvConfResponse'.'ns2:svConf'.'ns2:attrValue'.text() == 'Test1 value' : "'attrValue' not expected value.."
+    assert xmlResponse.Body.'ns2:getSvConfResponse'.'ns2:svConf'.'ns2:attrDesc'.text() == 'Lorem Ipsum' : "'attrDesc' not expected value.."
+} else {
+    assert false : "Does not exist."
+}</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getWrong" id="739a2dc3-7e4b-4b46-aa3b-dfdd17821af1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>getSvConf</con:operation><con:request name="getWrong" id="f22a88ef-3764-4b83-aeda-464556654213"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gen:getSvConfRequest>
+         <gen:attrName>Testa</gen:attrName>
+      </gen:getSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="17440323-208d-4610-abfe-f38401cfe409"/><con:assertion type="SOAP Fault Assertion" id="6ba9017e-63d4-42d8-8c86-7e3e88ec5e7a"/><con:assertion type="GroovyScriptAssertion" id="78e2f7b0-b897-4d49-9ee2-214ac36fb9b3" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+def status = xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:getSvConfResponse'
+    .'ns2:status'
+    .text()
+
+assert status == "404": "Should not be able to get conf that does not exist"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="delete1" id="4e50110c-71cf-482c-a237-2c30bbcb243b"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>deleteSvConf</con:operation><con:request name="delete1" id="6784032c-beb1-441e-ab21-469f4099b504"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gen:deleteSvConfRequest>
+         <gen:attrName>Test</gen:attrName>
+      </gen:deleteSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="d3aa87a5-0ac9-4499-8cac-dbe640fb4959"/><con:assertion type="Schema Compliance" id="04cab4d7-7ce6-4365-b01e-fd856e662ff5"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="f58c4989-e72d-4e01-8fb8-f4160a4e035e"/><con:assertion type="GroovyScriptAssertion" id="3730dacc-d1f1-40fc-99ed-570566edd163" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:deleteSvConfResponse'
+    .'ns2:status'
+    .text() == '0', "Conf does not exist."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="delete2" id="70577c2c-33f7-4350-b4cd-afdb4030035b"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>svConfPortSoap11</con:interface><con:operation>deleteSvConf</con:operation><con:request name="delete2" id="7c89ad05-3d39-4c60-abe7-52f719920c3f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gen:deleteSvConfRequest>
+         <gen:attrName>Test2</gen:attrName>
+      </gen:deleteSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="c45c81bf-f3c8-4795-aaa8-d1de8e25282a"/><con:assertion type="Schema Compliance" id="79989655-60ab-4b4d-b9c4-47072c25df59"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="a243a221-a69b-4cbe-85a3-919f791ec777"/><con:assertion type="GroovyScriptAssertion" id="f651f6b8-072f-4e61-b91b-544f2b19df7c" name="Script Assertion"><con:configuration><scriptText>import groovy.xml.XmlUtil
+
+def response = context.response
+
+def xmlResponse = new XmlSlurper().parseText(response)
+
+def ns2 = new groovy.xml.Namespace("http://www.soap.com/gen")
+
+assert xmlResponse
+    .declareNamespace(ns2: "http://www.soap.com/gen")
+    .Body
+    .'ns2:deleteSvConfResponse'
+    .'ns2:status'
+    .text() == '0', "Conf does not exist."</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
