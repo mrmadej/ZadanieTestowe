@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.soap.com/gen"
+           targetNamespace="http://www.soap.com/gen" elementFormDefault="qualified">
+
+    <xs:element name="getSvConf">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="attrName" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getSvConfResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="svConf" type="tns:SvConfSoap"/>
+                <xs:element name="status" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="postSvConf">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="attrName" type="xs:string"/>
+                <xs:element name="attrValue" type="xs:string"/>
+                <xs:element name="attrDesc" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="postSvConfResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="putSvConf">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="svConfSoap" type="tns:SvConfSoap"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="putSvConfResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteSvConf">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="attrName" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteSvConfResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="SvConfSoap">
+        <xs:sequence>
+            <xs:element name="attrName" type="xs:string"/>
+            <xs:element name="attrValue" type="xs:string"/>
+            <xs:element name="attrDesc" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+</xs:schema>
